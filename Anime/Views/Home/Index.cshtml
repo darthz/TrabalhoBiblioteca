@@ -1,8 +1,9 @@
 ﻿@using Anime.DAO
 @model Anime.Models.Usuario
 @{
-}
 
+}
+<!-- levando a mamada-->
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Otaku Library</title>
-    <!-- Bootstrap core CSS -->
+    Bootstrap core CSS -->
     <link href="~/Content2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
     <link href="~/Content2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -50,22 +51,22 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 @using (Html.BeginForm("Autentica", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
                                 {
-                                    <a class="dropdown-item">
-                                        <h1> Faça seu Login </h1>
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        @Html.TextBoxFor(model => model.Login, new { @class = "form-control", @placeholder = "Login...", @name = "Login" })
-                                    </a>
-                                    <a class="dropdown-item">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        @Html.TextBoxFor(model => model.Senha, new { @class = "form-control", @placeholder = "Senha...", @name = "Senha", @type = "password" })
-                                    </a>
-                                    <a class="dropdown-item">
-                                        <i class="fas fa-arrow-alt-circle-right fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        <input type="submit" value="Autenticar" />
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-question fa-sm fa-fw mr-2 text-gray-400" href="#"> Esqueceu sua senha?</i>
-                                    </a>
+                                <a class="dropdown-item">
+                                    <h1> Faça seu Login </h1>
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    @Html.TextBoxFor(model => model.Login, new { @class = "form-control", @placeholder = "Login...", @name = "Login" })
+                                </a>
+                                <a class="dropdown-item">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    @Html.TextBoxFor(model => model.Senha, new { @class = "form-control", @placeholder = "Senha...", @name = "Senha", @type = "password" })
+                                </a>
+                                <a class="dropdown-item">
+                                    <i class="fas fa-arrow-alt-circle-right fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <input type="submit" value="Autenticar" />
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-question fa-sm fa-fw mr-2 text-gray-400" href="#"> Esqueceu sua senha?</i>
+                                </a>
                                 }
                             </div>
                         </a>
@@ -166,54 +167,54 @@
 
                     @using (Html.BeginForm("Adiciona", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
-                        @Html.AntiForgeryToken();
+                    @Html.AntiForgeryToken();
 
-                        <h2 class="text-white mb-5">Cadastre-se para começar sua experiência inesquecível!</h2>
+                    <h2 class="text-white mb-5">Cadastre-se para começar sua experiência inesquecível!</h2>
 
 
-                        <div id="Nome">
-                            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu nome...", @name = "usuario.Nome" })
-                            @Html.ValidationMessageFor(model => model.Nome,
-                         null, new { @class = "text-danger" })
-                            <br>
-                        </div>
-                        <div id="Sobrenome">
-                            @Html.TextBoxFor(model => model.Sobrenome, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu sobrenome...", @name = "usuario.Sobrenome" })
-                            @Html.ValidationMessageFor(model => model.Sobrenome,
-                         null, new { @class = "text-danger" })
-                            <br />
-                        </div>
-                        <div id="Nickname">
-                            @Html.TextBoxFor(model => model.Nickname, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu nickname...", @name = "usuario.Nickname" })
-                            @Html.ValidationMessageFor(model => model.Nickname,
-                         null, new { @class = "text-danger" })
-                            <br />
-                        </div>
-                        <div id="Email">
-                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu email...", @name = "usuario.Email" })
-                            @Html.ValidationMessageFor(model => model.Email,
-                         null, new { @class = "text-danger" })
-                            <br />
-                        </div>
-                        <div id="Login">
-                            @Html.TextBoxFor(model => model.Login, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu login...", @name = "usuario.Login" })
-                            @Html.ValidationMessageFor(model => model.Login,
-                         null, new { @class = "text-danger" })
-                            <br />
-                        </div>
-                        <div id="Senha">
-                            @Html.TextBoxFor(model => model.Senha, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite sua senha...", @name = "usuario.Senha", @Type = "Password" })
-                            @Html.ValidationMessageFor(model => model.Senha,
-                         null, new { @class = "text-danger" })
-                            <br />
-                        </div>
-                        <div id="ConfirmarSenha">
-                            @Html.TextBoxFor(model => model.ConfirmarSenha, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Confirme sua senha...", @name = "usuario.Senha", @Type = "Password" })
-                            @Html.ValidationMessageFor(model => model.ConfirmarSenha,
-                         null, new { @class = "text-danger" })
-                            <br />
-                        </div>
-                        <button type="submit" class="btn btn-dark mx-auto" value="Cadastrar">Começar</button>
+                    <div id="Nome">
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu nome...", @name = "usuario.Nome" })
+                        @Html.ValidationMessageFor(model => model.Nome,
+                     null, new { @class = "text-danger" })
+                        <br>
+                    </div>
+                    <div id="Sobrenome">
+                        @Html.TextBoxFor(model => model.Sobrenome, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu sobrenome...", @name = "usuario.Sobrenome" })
+                        @Html.ValidationMessageFor(model => model.Sobrenome,
+                     null, new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div id="Nickname">
+                        @Html.TextBoxFor(model => model.Nickname, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu nickname...", @name = "usuario.Nickname" })
+                        @Html.ValidationMessageFor(model => model.Nickname,
+                     null, new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div id="Email">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu email...", @name = "usuario.Email" })
+                        @Html.ValidationMessageFor(model => model.Email,
+                     null, new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div id="Login">
+                        @Html.TextBoxFor(model => model.Login, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite seu login...", @name = "usuario.Login" })
+                        @Html.ValidationMessageFor(model => model.Login,
+                     null, new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div id="Senha">
+                        @Html.TextBoxFor(model => model.Senha, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Digite sua senha...", @name = "usuario.Senha", @Type = "Password" })
+                        @Html.ValidationMessageFor(model => model.Senha,
+                     null, new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <div id="ConfirmarSenha">
+                        @Html.TextBoxFor(model => model.ConfirmarSenha, new { @class = "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0", @placeholder = "Confirme sua senha...", @name = "usuario.Senha", @Type = "Password" })
+                        @Html.ValidationMessageFor(model => model.ConfirmarSenha,
+                     null, new { @class = "text-danger" })
+                        <br />
+                    </div>
+                    <button type="submit" class="btn btn-dark mx-auto" value="Cadastrar">Começar</button>
                     }
                 </div>
             </div>
