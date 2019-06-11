@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 using Anime.Models;
 
-namespace Anime.DAO
+namespace Anime.DAO.Anime
 {
     public class CategoriaDAO
     {
         private static BibliotecaContext ctx = SingletonContext.GetInstance();
-        public static List<Categoria> ListaCategorias()
-        {
 
-            return ctx.Categorias.ToList();
-
-        }
+        public static List<Categoria> RetornarCategoria() => ctx.Categorias.ToList();
+        public static Categoria BuscarCategoriaPorID(int? id) => ctx.Categorias.Find(id);
     }
 }

@@ -11,55 +11,63 @@ namespace Anime.Controllers
 {
     public class AdminController : Controller
     {
+       
         // GET: Admin
         public ActionResult Index()
         {
+            ViewBag.Msg = TempData["AdtempAnime"];
             return View();
         }
         public ActionResult AdicionarAnime()
         {
-            ViewBag.Temporadas = new SelectList(TemporadasDAO.ListaTemporadas(), "IDTemporada", "Estacao");
+            ViewBag.Categorias = new SelectList(CategoriaDAO.RetornarCategoria(), "IDCategoria", "DescCategoria");
             return View();
         }
-        [HttpPost]
-        public ActionResult AdicionarAnime(int? Temp, Animes Anime, HttpPostedFileBase AnimeImagem)
+        //Falta fazer
+        public ActionResult AdicionarTemp()
         {
-            ViewBag.Temporadas = new SelectList(TemporadasDAO.ListaTemporadas(), "IDTemporada", "Estacao");
+            ViewBag.Msgs = TempData["AdtempAnime"];
+            var a = TempData["AdtempAnime"];
+            return View(a);
+        }
+        [HttpPost]
+        public ActionResult AdicionarAnime(int? Categorias, Animes a, HttpPostedFileBase AnimeImagem)
+        {
+            ViewBag.Categorias = new SelectList(CategoriaDAO.RetornarCategoria(), "IDCategoria", "DescCategoria");
 
-           //Adicionar o IF ModelStateIsValid depois que resolver o negócio da categoria e das temporadas
-
-                Anime.Temporadas.Add(TemporadasDAO.BuscarTempPorId(Temp));
+            if (AnimeDAO.BuscarPorNome(a) == null)
+            {
+                a.Categoria = CategoriaDAO.BuscarCategoriaPorID(Categorias);
                 if (AnimeImagem == null)
                 {
-                    Anime.Imagem = "SemImagem.jpeg";
+                    a.Imagem = "SemImagem.jpeg";
                 }
                 else
                 {
                     string c = System.IO.Path.Combine(Server.MapPath("~/Imagem/"), AnimeImagem.FileName);
                     AnimeImagem.SaveAs(c);
-                    Anime.Imagem = AnimeImagem.FileName;
+                    a.Imagem = AnimeImagem.FileName;
                 }
-                if (AnimeDAO.AdicionarAnime(Anime))
+                if (AnimeDAO.AdicionarAnime(a))
                 {
-                    
-                 return RedirectToAction("Index", "Admin");
+                    TempData["AdtempAnime"] = "Cadastrado com sucesso";
+                    return RedirectToAction("Index", "Admin");
                 }
-
-
-            
-      
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AdicionarTemp(Temporada temp)
-        {
-            if (ModelState.IsValid)
-            {
-
+              
+                return View(a);
             }
-
+            ModelState.AddModelError("", "Esse anime já está cadastrado!");
             return View();
         }
+
+        //falta fazer
+        [HttpPost]
+        public ActionResult AdicionarTemp(Animes a)
+        {
+            AnimeDAO.AlterarAnime(a);
+            return RedirectToAction("Index", "Admin");
+        }
+
+
     }
 }

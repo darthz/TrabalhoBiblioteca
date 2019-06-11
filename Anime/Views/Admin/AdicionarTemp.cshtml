@@ -1,0 +1,35 @@
+﻿ @model Anime.Models.Animes
+@{
+    ViewBag.Title = "AdicionarTemp";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
+}
+
+@using (Html.BeginForm("AdicionarTemp", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-horizontal">
+        <h4>Animes</h4>
+        <hr />
+        <table class="table table-hover table-striped">
+            <tr>
+                <td> @Model.NomeAnime </td>
+                <td> @Model.Estudio </td>
+                <td> @Model.Duracao</td>
+                <td> @Model.Categoria.DescCategoria</td>
+                <td>
+
+                    <img src="~/Imagem/SemImagem.jpg alt="Imagem do anime"
+                         style="width: 150px" />
+                </td>
+            </tr>
+        </table>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Adicionar" class="btn btn-dark mx-auto" />
+            </div>
+        </div>
+
+    </div>
+}
+

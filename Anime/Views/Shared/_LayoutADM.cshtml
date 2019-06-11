@@ -71,15 +71,18 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">Otaku Library </div>
             </a>
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+           @*
+               <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+               <li class="nav-item active">
                 <a class="nav-link" href="@Url.Action("Biblioteca", "Home")">
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Biblioteca de Animes</span>
                 </a>
             </li>
+           *@ 
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Heading -->
@@ -102,33 +105,21 @@
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Adicionar Anime na Biblioteca</span>
-                </a>
-            </li>
+        
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
                 Opcoes
             </div>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Meus animes</span>
-                </a>
-            </li>
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-thumbs-up"></i>
-                    <span>Recomendados</span>
-                </a>
-            </li>
+            <!-- Nav Item - Pages Collapse Menu
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Meus animes</span>
+        </a>
+    </li>
+        -->
             <!-- Adicionar Animes NavBar -->
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action( "AdicionarAnime", "Admin")">

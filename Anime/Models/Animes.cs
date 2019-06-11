@@ -16,8 +16,9 @@ namespace Anime.Models
         public string Estudio { get; set; }
         public string Duracao { get; set; }
         public string Imagem { get; set; }
+        public Categoria Categoria { get; set; }
         public List<Temporada> Temporadas { get; set; }
-        public List<Categoria> Categorias { get; set; }
+       
 
     }
 }

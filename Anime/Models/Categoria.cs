@@ -13,5 +13,6 @@ namespace Anime.Models
         [Key]
         public int IDCategoria { get; set; }
         public string DescCategoria { get; set; }
+
     }
 }

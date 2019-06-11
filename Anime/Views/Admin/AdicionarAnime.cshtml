@@ -1,14 +1,14 @@
 ﻿@model Anime.Models.Animes
-@using Anime.Models
 
 
 @{
     ViewBag.Title = "AdicionarAnime";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutADM.cshtml";
 
 }
+
 <h2>AdicionarAnime</h2>
-@using (Html.BeginForm("AdicionarAnime", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("AdicionarAnime", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
         <h4>Animes</h4>
@@ -30,8 +30,18 @@
                 @Html.ValidationMessageFor(model => model.Estudio, "", new { @class = "text-danger" })
             </div>
         </div>
-        <!--  Duração -->
+        <!-- Categoria -->
 
+        <div class="form-group">
+            @Html.Label("Categorias", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Categorias", null,
+                    " -- SELECIONE -- ",
+                    new { @class = "form-control" })
+            </div>
+        </div>
+
+        <!--  Duração -->
         <div class="form-group">
             @Html.LabelFor(model => model.Duracao, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -47,38 +57,13 @@
                        class="form-control-file" />
             </div>
         </div>
-
-        <!--  Temporadas -->
-        <div class="form-group">
-            @Html.Label("Temporadas", new { @class = "control-label col-sm-2" })
-            <div class="col-sm-10">
-                @Html.DropDownList("Temporadas", null,
-                    " -- SELECIONE -- ",
-                    new { @class = "form-control" })
-
-            </div>
-        </div>
-        
-        <!-- Categorias  -->
-        <!-- Como adicionar a opção de ele selecionar vários??? -->
-        @*<div class="form-group">
-                <tr>
-                    @foreach (Anime.Models.Categoria C in categorias)
-                    {
-                        <td>
-                            @Html.CheckBox(, new { value = C.DescCategoria })
-                        </td>
-                    }
-
-                </tr>
-
-            </div>*@
-
+        <!-- Submit -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Adicionar" class="btn btn-dark mx-auto" />
             </div>
         </div>
+
     </div>
 }
 

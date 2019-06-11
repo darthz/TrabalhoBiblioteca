@@ -20,12 +20,7 @@ namespace Anime.DAO
             return false;
         }
         public static Animes BuscarPorNome(Animes a) => ctx.Animes.SingleOrDefault(x => x.NomeAnime.Equals(a.NomeAnime));
-        public IList<Animes> ListaAnimes()
-        {
-
-            return ctx.Animes.ToList();
-
-        }
+        public IList<Animes> ListaAnimes() => ctx.Animes.ToList();
         public static void AtualizarAnime(Animes Animes)
         {
 
@@ -33,7 +28,12 @@ namespace Anime.DAO
             ctx.SaveChanges();
 
         }
+        public static void AlterarAnime(Animes a)
+        {
+            ctx.Entry(a).State = System.Data.Entity.EntityState.Modified;
+            ctx.SaveChanges();
+        }
 
-       
+
     }
 }
