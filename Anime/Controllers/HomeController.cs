@@ -16,10 +16,15 @@ namespace Anime.Controllers
     public class HomeController : Controller
     {
         private BibliotecaContext db = new BibliotecaContext();
+        public static int ok = 0;
 
         public ActionResult Index()
-
         {
+            if (ok == 0)
+            {
+                Dados.Inserir();
+                ok = 1;
+            }
             return View();
         }
 

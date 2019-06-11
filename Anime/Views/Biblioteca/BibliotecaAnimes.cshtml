@@ -1,0 +1,41 @@
+﻿@using Anime.Models;
+@model List<Animes>
+
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "BibliotecaAnimes";
+    List<Categoria> categorias = ViewBag.Categorias;
+}
+
+
+<div id="Categorias" style="text-align:center;margin-bottom:40px">
+    <ul class="nav nav-tabs">
+        @foreach (Categoria item in categorias)
+        {
+            <li class="nav-item">
+                @Html.ActionLink(item.DescCategoria + " ", "Index", "Biblioteca",
+                    new { id = item.IDCategoria }, new { @class = "nav-link" })
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="row" id="Produtos">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3" style="text-align:center; margin-bottom:25px">
+            <img src="~/Images/@item.Imagem" alt="@item.Estudio"
+                 style="width:200px;height:150px;border:solid" />
+            <br />
+            @Html.ActionLink(@item.NomeAnime, "Detalhe", "Biblioteca",
+                new { id = item.IDAnime }, null)
+            <br />
+            <b>Descricao: </b> @item.Descricao
+            <br />
+            @Html.ActionLink("Adicionar", "AdicionarAoCarrinho", "Home",
+                new { id = item.IDAnime}, new { @class = "btn btn-success" })
+        </div>
+    }
+</div>

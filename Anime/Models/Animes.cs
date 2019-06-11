@@ -18,7 +18,8 @@ namespace Anime.Models
         public string Imagem { get; set; }
         public Categoria Categoria { get; set; }
         public List<Temporada> Temporadas { get; set; }
-       
+        public string Descricao { get; set; }
+
 
     }
 }

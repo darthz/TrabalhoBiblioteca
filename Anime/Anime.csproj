@@ -145,11 +145,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BibliotecaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="DAO\Anime\AnimeDAO.cs" />
     <Compile Include="DAO\Anime\CategoriaDAO.cs" />
     <Compile Include="DAO\Anime\TemporadasDAO.cs" />
+    <Compile Include="DAO\Biblioteca\BibliotecaDAO.cs" />
     <Compile Include="DAO\Dados.cs" />
     <Compile Include="DAO\SingletonContext.cs" />
     <Compile Include="Filtro\AutorizacaoFilterAttribute.cs" />
@@ -3585,6 +3587,7 @@
     <Content Include="Views\Shared\_LayoutADM.cshtml" />
     <Content Include="Views\Admin\AdicionarTemp.cshtml" />
     <Content Include="Views\Admin\AdicionarCategoria.cshtml" />
+    <Content Include="Views\Biblioteca\BibliotecaAnimes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
