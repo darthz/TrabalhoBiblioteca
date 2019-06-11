@@ -1,4 +1,6 @@
-﻿using Anime.DAO.Anime;
+﻿using Anime.DAO;
+using Anime.DAO.Anime;
+using Anime.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,11 @@ namespace Anime.Controllers
             ViewBag.Categorias = BibliotecaDAO.RetornarCategoria();
 
             return View(BibliotecaDAO.ListaAnimes());
+        }
+
+        public ActionResult Detalhes(int? id)
+        {            
+            return View(AnimeDAO.BuscarAnimesPorId(id));
         }
     }
 }

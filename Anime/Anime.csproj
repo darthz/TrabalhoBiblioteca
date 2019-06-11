@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -147,7 +153,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BibliotecaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="DAO\Anime\AnimeDAO.cs" />
     <Compile Include="DAO\Anime\CategoriaDAO.cs" />
     <Compile Include="DAO\Anime\TemporadasDAO.cs" />
@@ -155,8 +160,13 @@
     <Compile Include="DAO\Dados.cs" />
     <Compile Include="DAO\SingletonContext.cs" />
     <Compile Include="Filtro\AutorizacaoFilterAttribute.cs" />
+    <Compile Include="Migrations\201906112233344_oie.cs" />
+    <Compile Include="Migrations\201906112233344_oie.Designer.cs">
+      <DependentUpon>201906112233344_oie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BibliotecaContext.cs" />
-    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DAO\Usuario\UsuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3588,6 +3598,7 @@
     <Content Include="Views\Admin\AdicionarTemp.cshtml" />
     <Content Include="Views\Admin\AdicionarCategoria.cshtml" />
     <Content Include="Views\Biblioteca\BibliotecaAnimes.cshtml" />
+    <Content Include="Views\Biblioteca\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3600,6 +3611,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906112233344_oie.resx">
+      <DependentUpon>201906112233344_oie.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

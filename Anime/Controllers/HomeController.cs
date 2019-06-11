@@ -139,12 +139,14 @@ namespace Anime.Controllers
         [HttpPost]
         public ActionResult AlterarSenha(Usuario usuario)
         {
-            Usuario u = UsuarioDAO.BuscarPorId(usuario.UsuarioId);
+            Usuario u = UsuarioDAO.BuscarUsuarioPorId(usuario.UsuarioId);
+
             u.Senha = usuario.Senha;
             u.ConfirmarSenha = usuario.ConfirmarSenha;
+
             UsuarioDAO.Atualiza(u);
 
-            if (usuario.Nivel.Equals(1))
+            if (u.Nivel.Equals(1))
             {
                 return RedirectToAction("PerfilAdm", "Home");
             }
@@ -153,10 +155,11 @@ namespace Anime.Controllers
                 return RedirectToAction("Perfil", "Home");
             }
         }
-        [HttpPost]
+
+    [HttpPost]
         public ActionResult AlterarEmail(Usuario usuario)
         {
-            Usuario u = UsuarioDAO.BuscarPorId(usuario.UsuarioId);
+            Usuario u = UsuarioDAO.BuscarUsuarioPorId(usuario.UsuarioId);
             u.Email = usuario.Email;
             UsuarioDAO.Atualiza(u);
 
@@ -172,7 +175,7 @@ namespace Anime.Controllers
         [HttpPost]
         public ActionResult AlterarImagem(Usuario usuario)
         {
-            Usuario u = UsuarioDAO.BuscarPorId(usuario.UsuarioId);
+            Usuario u = UsuarioDAO.BuscarUsuarioPorId(usuario.UsuarioId);
             UsuarioDAO.Atualiza(u);
 
             if (usuario.Nivel.Equals(1))
@@ -187,7 +190,7 @@ namespace Anime.Controllers
         [HttpPost]
         public ActionResult AlterarNickname(Usuario usuario)
         {
-            Usuario u = UsuarioDAO.BuscarPorId(usuario.UsuarioId);
+            Usuario u = UsuarioDAO.BuscarUsuarioPorId(usuario.UsuarioId);
 
             u.Nickname = usuario.Nickname;
             UsuarioDAO.Atualiza(u);
