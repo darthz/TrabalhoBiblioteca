@@ -26,10 +26,10 @@
     @foreach (var item in Model)
     {
         <div class="col-sm-3" style="text-align:center; margin-bottom:25px">
-            <img src="~/Images/@item.Imagem" alt="@item.Estudio"
+            <img src="~/Imagem/@item.Imagem" alt="@item.Descricao"
                  style="width:200px;height:150px;border:solid" />
             <br />
-            @Html.ActionLink(@item.NomeAnime, "Detalhe", "Biblioteca",
+            @Html.ActionLink(@item.NomeAnime, "Detalhes", "Biblioteca",
                 new { id = item.IDAnime }, null)
             <br />
             <b>Descricao: </b> @item.Descricao
