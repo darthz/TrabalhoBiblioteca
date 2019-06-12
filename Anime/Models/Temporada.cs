@@ -15,7 +15,6 @@ namespace Anime.Models
         public int IDTemporada { get; set; }
         public string Estacao { get; set; }
         public string Ano { get; set; }
-
         public List<Episodio> Episodios { get; set; }
     }
 }

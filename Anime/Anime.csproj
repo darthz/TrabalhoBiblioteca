@@ -3340,7 +3340,6 @@
     <Content Include="Global.asax" />
     <Content Include="Imagem\Biblioteca1.jpg" />
     <Content Include="Imagem\biblioteca2.jpg" />
-    <Content Include="Imagem\Capturar.PNG" />
     <Content Include="Imagem\Darkness.jpg" />
     <Content Include="Imagem\download %281%29.jpg" />
     <Content Include="Imagem\Intro2.jpg" />
@@ -3598,6 +3597,8 @@
     <Content Include="Views\Admin\AdicionarTemp.cshtml" />
     <Content Include="Views\Admin\AdicionarCategoria.cshtml" />
     <Content Include="Views\Biblioteca\BibliotecaAnimes.cshtml" />
+    <Content Include="Views\Admin\PesquisarAnime.cshtml" />
+    <Content Include="Views\Admin\AlterarAnime.cshtml" />
     <Content Include="Views\Biblioteca\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
