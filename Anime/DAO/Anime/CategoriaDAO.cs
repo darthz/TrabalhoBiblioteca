@@ -12,6 +12,11 @@ namespace Anime.DAO.Anime
     {
         private static BibliotecaContext ctx = SingletonContext.GetInstance();
 
+        public static void AddCategoria(Categoria c)
+        {
+            ctx.Categorias.Add(c);
+            ctx.SaveChanges();
+        }
         public static List<Categoria> RetornarCategoria() => ctx.Categorias.ToList();
         public static Categoria BuscarCategoriaPorID(int? id) => ctx.Categorias.Find(id);
     }
