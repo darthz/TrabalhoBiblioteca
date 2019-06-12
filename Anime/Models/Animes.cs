@@ -20,6 +20,5 @@ namespace Anime.Models
         public List<Temporada> Temporadas { get; set; }
         public string Descricao { get; set; }
 
-
     }
 }

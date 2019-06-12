@@ -71,18 +71,18 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">Otaku Library </div>
             </a>
-            
+
             <!-- Nav Item - Dashboard -->
-           @*
-               <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-               <li class="nav-item active">
-                <a class="nav-link" href="@Url.Action("Biblioteca", "Home")">
-                    <i class="fas fa-fw fa-list-alt"></i>
-                    <span>Biblioteca de Animes</span>
-                </a>
-            </li>
-           *@ 
+            @*
+           <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+           <li class="nav-item active">
+            <a class="nav-link" href="@Url.Action("Biblioteca", "Home")">
+                <i class="fas fa-fw fa-list-alt"></i>
+                <span>Biblioteca de Animes</span>
+            </a>
+        </li>
+            *@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Heading -->
@@ -105,7 +105,7 @@
                     </div>
                 </div>
             </li>
-        
+
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Heading -->
@@ -129,9 +129,16 @@
             </li>
             <!-- Adicionar Categorias NavBar -->
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action( "AdicionarAnime", "Admin")">
+                <a class="nav-link" href="@Url.Action( "AdicionarCategoria", "Admin")">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Adicionar Categoria</span>
+                </a>
+            </li>
+            <!-- Deletar Anime -->
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action( "RemoverAnime", "Admin")">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>RemoverAnime</span>
                 </a>
             </li>
             <!-- Divider -->
@@ -156,12 +163,19 @@
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group" style="background-color:#ffb72c">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Procurar por..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
+
+
+                            @using (Html.BeginForm("PesquisarAnime", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                            {
+                                   @Html.TextBox("NomeAnime", "", new { @class = "form-control bg-light border-0 small", @placeholder = "Procurar por..." })
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            }
+
+
                         </div>
                     </form>
                     <!-- Topbar Navbar -->
@@ -175,7 +189,7 @@
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Procurar por..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Procurar " aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>

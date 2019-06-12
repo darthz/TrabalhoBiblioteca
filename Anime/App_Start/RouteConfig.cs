@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Anime.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,7 @@ namespace Anime
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+          //  Dados.Inserir();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
