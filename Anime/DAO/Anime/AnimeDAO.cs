@@ -33,6 +33,13 @@ namespace Anime.DAO
             ctx.SaveChanges();
 
         }
+
+        public static Animes BuscarAnimesPorId(int? id)
+        {
+            return ctx.Animes.Find(id);
+        }
+
+
         public static Animes BuscarPorNomeInclude(Animes a) => ctx.Animes.
             Include("Temporadas").Include("Categoria")
             .SingleOrDefault(x => x.NomeAnime.Equals(a.NomeAnime));

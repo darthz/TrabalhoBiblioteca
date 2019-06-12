@@ -27,4 +27,15 @@
     </div>
 }
 
+@using (Html.BeginForm("PesquisarAnime", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.TextBox("NomeAnime", "", new { @class = "form-control bg-light border-0 small", @placeholder = "Procurar por..." })
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+            <i class="fas fa-search fa-sm"></i>
+        </button>
+    </div>
+}
+
 

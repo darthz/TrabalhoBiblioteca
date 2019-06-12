@@ -3593,6 +3593,9 @@
     <Content Include="Views\Admin\AdicionarTemp.cshtml" />
     <Content Include="Views\Admin\AdicionarCategoria.cshtml" />
     <Content Include="Views\Biblioteca\BibliotecaAnimes.cshtml" />
+    <Content Include="Views\Admin\PesquisarAnime.cshtml" />
+    <Content Include="Views\Admin\AlterarAnime.cshtml" />
+    <Content Include="Views\Biblioteca\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
