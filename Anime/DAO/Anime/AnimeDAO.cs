@@ -34,11 +34,6 @@ namespace Anime.DAO
             ctx.SaveChanges();
         }
 
-        public static Animes BuscarAnimesPorId(int? id)
-        {
-            return ctx.Animes.Find(id);
-        }
-
 
     }
 }

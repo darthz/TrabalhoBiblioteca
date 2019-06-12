@@ -34,9 +34,11 @@ namespace Anime.DAO
 
         }
 
-        public static Usuario BuscarUsuarioPorId(int? id)
+        public static Usuario BuscarPorId(int? id)
         {
+
             return ctx.Usuarios.Find(id);
+
         }
 
         public static void Atualiza(Usuario usuario)
@@ -44,7 +46,6 @@ namespace Anime.DAO
 
             ctx.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
             ctx.SaveChanges();
-
 
         }
 
